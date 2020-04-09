@@ -1,24 +1,32 @@
-﻿#include <iostream>
+#include <iostream>
+#include <windows.h>
 using namespace std;
-
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	int a, b, i;
-
-	cout << "Введите 2 числа: \na = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "Изменение значения с использованием доп. переменной:";
-	i = a;
-	a = b;
-	b = i;
-	cout << "\na = " << a << "\nb = " << b;
-	cout << "\nИзменение значения без использования доп. переменной:";
-	a = a + b;
-	b = a - b;
-	a = a - b;
-	cout << "\na = " << a << "\nb = " << b;
-
-}
+	{
+		int a, b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		a = a + b;
+		b = a - b;
+		a = a-b;
+		cout << "a=" << a;
+		cout << "b=" << b;
+		system("pause");
+	}
+	{
+		int a, c, b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+	
+		a = b;
+		b = a;
+		cout << "a=" << a;
+		cout << "b=" << b;
+		system("pause");
+	}
+	}

@@ -1,47 +1,47 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 using namespace std;
-
-void simpleNum(int n, vector<int>& subNumbers)
-{
-	int k = 0;
-	for (int i = 2; i < n; i++) {
-		if (n % i == 0) {
-			n /= i;
-			subNumbers.push_back(i);
-			i = 1;
+void factorization(int n) {
+	vector <int> prost;
+	int temp;
+	
+		for (int i = 2; i < n;) {
+			if (n % i == 0) {
+				prost.push_back(i);
+				n = n / i;
+			}
+			else {
+				i++;
+			}
 		}
-	}
-	subNumbers.push_back(n);
+		if (n > 1) {
+			prost.push_back(n); 
+		}
+	
 
+	for (int i = 0; i < prost.size(); i++) {
+		cout << prost[i];
+		temp = count(prost.begin(), prost.end(), prost[i]);
+		if (temp != 1) {
+			cout << "^" << temp;
+			i += temp - 1;
+			if (i != prost.size() - 1) cout << "*";
+			continue;
+		}
+		else if (i != prost.size() - 1) cout << "*";
+	}
 }
-
-int main()
-{
+int main() {
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите число";
 	int n;
-	vector<int> subNumbers;
-
 	cin >> n;
-	simpleNum(n, subNumbers);
-
-	int nowNum = subNumbers[0];
-	int count = 1;
-	cout << subNumbers[0];
-	for (int i = 1; i < subNumbers.size(); i++) {
-		if (subNumbers[i] == nowNum) {
-			count++;
-			if (i == subNumbers.size() - 1) {
-				cout << "^" << count;
-			}
-		}
-		else {
-			if (count > 1) {
-				cout << "^" << count;
-			}
-			count = 1;
-			nowNum = subNumbers[i];
-			cout << "*" << subNumbers[i];
-		}
+	if (n == 1) { cout << "Это число ни простое, ни составное"; 
+	return 0;
 	}
+	else if (n<=0)
+	{
+		cout << "Это число не натуральное";
+	} else	factorization(n);
 	return 0;
 }

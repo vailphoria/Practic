@@ -1,17 +1,35 @@
-﻿#include <iostream>
+#include <iostream>
+#include <windows.h>
 using namespace std;
-
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	double g = -9.8;
-	double x0, v0, x;
-	int t;
-	cout << "Введите x0, v0 и t: ";
-	cin >> x0 >> v0 >> t;
-	
-	x = x0 + v0 * t + (1f/2*g * t * t);
-	//x = x0 + v0 * t + (g * t * t / 2);
-	cout << "\nx = " << x;
+	{
+		int a;
+		double b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		a = a + b;
+		b = a - b;
+		a = a-b;
+		cout << "a=" << a;
+		cout << "b=" << b;
+		system("pause");
+	}
 
+	{
+		int a, c;
+		double b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		c = a;
+		a = b;
+		b = c;
+		cout << "a=" << a;
+		cout << "b=" << b;
+		system("pause");
+	}
 }

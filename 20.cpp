@@ -1,39 +1,23 @@
-﻿#include <iostream>
+//Пузырек
+#include <iostream>
 using namespace std;
-
-void bubbles(int* arrOfNum, int size) {
-	int fNum, isChange = 0;
-	for (int i = 0; i<size; i++){
-		if (i+1 != size && arrOfNum[i]>arrOfNum[i+1]){
-			fNum = arrOfNum[i];
-			arrOfNum[i] = arrOfNum[i+1];
-			arrOfNum[i + 1] = fNum;
-			isChange = 1;
-		}
-		else if (i + 1 == size && isChange == 1) {
-			i = -1;
-			isChange = 0;
-			size--;
-		}
-	}
-	return;
+void buble(int size, int *mas) {
+	for(int i=size;i>=0;i--){
+		for (int j = 0; j <i-1; j++) {
+			if (mas[j] > mas[j + 1]) {
+				swap(mas[j], mas[j + 1]);
+			} 
+		}//меньший на месте
+    }
 }
-
 int main()
 {
 	int n;
 	cin >> n;
-	int* num = new int[n];
-
-	for (int i = 0; i < n; i++)
-	{
-		cin >> num[i];
-	}
-
-	bubbles(num, n);
-	for (int i = 0; i < n; i++)
-	{
-		cout << num[i] << " ";
-	}
+	int* a = new int[n];
+	for (int i = 0; i < n; i++) cin >> a[i];
+	buble(n, a);
+	for (int i = 0; i < n; i++) cout<< a[i]<<" "; ;
+	delete[] a;
+	return 0;
 }
-

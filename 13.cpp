@@ -1,15 +1,17 @@
-﻿#include <iostream>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
-#include <ctime>
 
-int main()
-{
+int main() {
 	setlocale(LC_ALL, "Russian");
-	int n, i, x = 0;
-	cout << "Введите число: "; cin >> n;
+	int a;
+	cout << "Введите число" << endl;
+	cin >> a;
+	int A ;
+	
+	A = log(a) / log(2) +1;
+	cout << A;
 
-	for (i = 1; i <= n; i*=2) {
-		x++;
-	}
-	cout << x;
+	return 0;
 }

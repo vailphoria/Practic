@@ -1,32 +1,39 @@
-﻿#include <iostream>
+#include <iostream>
+#include <clocale>
+#include <time.h>
 using namespace std;
-#include <ctime>
-
 int main()
 {
 	setlocale(LC_ALL, "Russian");
+	cout << "Игра \"Угадай число\" " << endl;
 	srand(time(NULL));
-	int random = 0;
-	int anyone = 1;
-	int n;
-	while (anyone == 1)
-	{
-		random = rand() % 100;
-		cout << "Введите число от 0 до 100:" << endl;
-		for(int i=0;i<5;i++)
-		{
-			cin >> n;
-			if (n == random)
-			{
-				cout << "Поздравляю! Вы угадали\n";
-				i = 5;
+	int num, n, v;
+	do {
+		num = rand() % 101;
+		int i = 0;
+		bool flag = false;
+		do {
+			if (i == 5) {
+				cout << "Вы проиграли.Загаданное число:" << num;
+				break;
 			}
-			else if (n > random && i < 4)cout << "Загаданное число меньше\n";
-			else if (n < random && i < 4)cout << "Загаданное число больше\n";
-			else cout << "Вы проиграли.Было загадано : " << random << endl;
-		}
-		cout << "Хотите начать сначала ? (1 - ДА)\n"; cin >> anyone;
-	}
+			cout << "Ваше число" << endl;
+			cin >> n;
+			if (n == num) {
+				cout << "вы угадали!!!" << endl;
+				break;
+			}
+			else if (n < num) {
+				cout << "Загаданное число больше" << endl;
+			}
+			else {
+				cout << "Загаданное число меньше" << endl;
+			}
+			i++;
+		} while (!flag);
+		cout<< " Хотите сыграть ещё? Нажмите 1, если да ";
+		cin >> v;
 
-
+	} while (v == 1);
+	return 0;
 }

@@ -1,17 +1,53 @@
-﻿#include <iostream>
+#include <iostream>
+#include <clocale>
+#include <time.h>
 using namespace std;
-#include <ctime>
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	srand(time(NULL));
-	int n, st, ans = 1;
-	cout << "Введите число: "; cin >> n; cout << "Введите степень: "; cin >> st;
-	for (int i = 0; i < st; i++)
+	double a,res=1;
+	int b;
+	cout << "a=";
+	cin >> a;
+	cout << "b=";
+	cin >> b;
+
+	if (a == 0)
 	{
-		ans *= n;
+		if (b == 0)
+		{
+			cout << 1;
+		}
+		if (b > 0)
+		{
+			cout << 0;
+		}
+		if (b < 0)
+		{
+			cout << "Ошибка";
+		}
 	}
-	
-	cout << "Число " << n << " в степени " << st << " равно: " << ans;
+	else
+	{
+		if (b > 0) {
+			for (int i = 1; i <= b; i++) {
+				res *= a;
+            }
+		} 
+		
+		else 
+			if (b == 0) cout << 1;
+		 else {
+			for (int i = 1; i <= -b; i++) {
+				res /= a;
+			}
+		}
+	}
+	cout << res;
+	return 0;
 }
+
+
+
+

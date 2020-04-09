@@ -1,41 +1,70 @@
-﻿#include <iostream>
+
+/* Задача № 3
+Объявите в коде программы 2 переменные типа int.
+Запросите значения для этих переменных у пользователя.
+Для этой пары чисел рассчитайте и выведите на экран результат следующих действий : +, -, *, / ;
+Повторите задание для пары переменных типа double, double, пары int, double и пары double, int .
+Обратите внимание на разницу в поведении операторов + , -, *, / в зависимости от типа операндов.*/
+#include <iostream>
+#include<Windows.h>
 using namespace std;
-
 int main()
-{
-	setlocale(LC_ALL, "Russian");
-	int a, b;
-	double c, d;
-
-	cout << "Введите 2 числа: ";
-	cin >> a >> b;
-	cout << "int and int:\n";
-	cout << "a + b =" << a + b << ";\n";
-	cout << "a - b =" << a - b << ";\n";
-	cout << "a * b =" << a * b << ";\n";
-	cout << "a / b =" << a / b << ".\n\n";
-
-	cout << "Введите 2 числа: ";
-	cin >> c >> d;
-	cout << "double and double:\n";
-	cout << "a + b =" << c + d << ";\n";
-	cout << "a - b =" << c - d << ";\n";
-	cout << "a * b =" << c * d << ";\n";
-	cout << "a / b =" << c / d<< ".\n\n";
-
-	cout << "Введите 2 числа: ";
-	cin >> a >> d;
-	cout << "int and double:\n";
-	cout << "a + b =" << a + d << ";\n";
-	cout << "a - b =" << a - d << ";\n";
-	cout << "a * b =" << a * d << ";\n";
-	cout << "a / b =" << a / d << ".\n\n";
-
-	cout << "Введите 2 числа: ";
-	cin >> c >> b;
-	cout << "double and int:\n";
-	cout << "a + b =" << c + b << ";\n";
-	cout << "a - b =" << c - b << ";\n";
-	cout << "a * b =" << c * b << ";\n";
-	cout << "a / b =" << c / b << ".\n\n";
+{	
+	{
+		int a, b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		cout << "a+b = " << a + b << "\n";
+		cout << "a-b=" << a - b << "\n";
+		cout << "a*b=" << a * b << "\n";
+		cout << "a/b=" << a / b << "\n";
+		system("pause");
+	}
+	{
+		double a, b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		cout << "a+b = " << a + b << "\n";
+		cout << "a-b=" << a - b << "\n";
+		cout << "a*b=" << a * b << "\n";
+		cout << "a/b=" << a / b << "\n";
+		system("pause");
+	}
+	{double a;
+	int b;
+	cout << "a=";
+	cin >> a;
+	cout << "b=";
+	cin >> b;
+	cout << "a+b = " << a + b << "\n";
+	cout << "a-b=" << a - b << "\n";
+	cout << "a*b=" << a * b << "\n";
+	cout << "a/b=" << a / b << "\n";
+	system("pause");
+	}
+	{
+		int  a;
+		double b;
+		cout << "a=";
+		cin >> a;
+		cout << "b=";
+		cin >> b;
+		cout << "a+b = " << a + b << "\n";
+		cout << "a-b=" << a - b << "\n";
+		cout << "a*b=" << a * b << "\n";
+		cout << "a/b=" << a / b << "\n";
+		system("pause");
+	}
 }
+
+
+
+
+
+
+
+

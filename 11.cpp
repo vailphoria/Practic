@@ -1,16 +1,26 @@
-﻿#include <iostream>
-using namespace std;
-#include <ctime>
 
-int main()
-{
+#include <iostream>
+
+using namespace std;
+
+int fact(int a, int res = 1) {
+	if (a == 1) return  res;
+	else return fact(a - 1, res * a);
+
+}
+
+int main() {
 	setlocale(LC_ALL, "Russian");
-	int n, ans = 1;
-	cout << "Введите число: "; cin >> n;
-	for (int i = 1; i <= n; i++)
-	{
-		ans *= i;
+	int a;
+	cout << "a=";
+	cin >> a;
+	if (a >= 0) {
+			cout << fact(a);
+			return 0;
 	}
-	
-	cout << "Факториал " << n << "! равен: " << ans;
+	else
+	{
+		cout << "Ошибка : введите целое положительное число";
+	}
+	return 0;
 }

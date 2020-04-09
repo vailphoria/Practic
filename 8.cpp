@@ -1,19 +1,39 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
 	double a, b;
-	char smb;
-	//cout << "Введите выражение:"; cin >> a >> smb >> b;
-	cout << "Введите выражение: "; cin >> a >> smb >> b;
+	char d;
 
-	if (smb == '+') cout << a + b;
-	else if (smb == '-') cout << a - b;
-	else if (smb == '*') cout << a * b;
-	else if (smb == '/') cout << a / b;
-	else cout << "Калькулятор не может выполнить данную операцию.";
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите данные";
+	cin >> a >> d >> b;
+	switch (d)
+	{
+	case'+':
+		cout << a + b;
+		break;
+	case'-':
+		cout << a - b;
+		break;
+	case'*':
+		cout << a * b;
+		break;
+	case '/':
+		if (b==0)
+		{
+			cout << "Некорретные данные деление на 0 невозможно";
+		}
+		else
+		{
+			cout << a / b;
+		}
+		break;
+	default:
+		cout<<"Некорретные данные, уточните арифметическое действие";
+		break;
+	}
 
-
+	return 0;	
 }

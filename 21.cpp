@@ -1,57 +1,46 @@
-﻿#include <iostream>
-#include <random>
+
+#include <iostream>
 #include <time.h>
 using namespace std;
-
-int main()
-{
+int main(){
 	setlocale(LC_ALL, "Russian");
-
-	int num[10][8];
-	vector <pair<int, int> > plXY;
-	int str = 10, stb = 8;
 	srand(time(NULL));
-	pair<int, int> player(0, 0);
+	int m, n, V;
+	int N, M;
+	do {
+		int arr[10][8]{ 0 };
+		n = rand() % 8;
+		m = rand() % 10;
+		arr[m][n] = 1;
+		int i = 0;
+		while (true) {
+			cout << "Введите значения" << endl;
+			cin >> N >> M;
 
-	for (int i = 0; i < str; i++)
-	{
-		for (int j = 0; j < stb; j++)num[i][j] = 0;
-	}
-
-	int nI = (rand() % str), nJ = (rand() % stb);
-	num[nI][nJ] = 1;
-	for (int i = 0; i < str; i++)
-	{
-		for (int j = 0; j < stb; j++) cout << num[i][j];
-		cout << endl;
-	}
-
-	int counter = 0;
-	while (counter < 5) {
-		cin >> player.first >> player.second;
-
-		bool isItTest = true;
-		for (int i = 0; i < plXY.size(); i++) {
-			if (player.first == plXY[i].first && player.second == plXY[i].second) {
-				cout << "Эту уже проверяли" << endl;
-				isItTest = false;
+			if (i == 4) {
+				cout << "Попыток не осталось.Вы проиграли." << endl;
+				break;
+			}
+			if (arr[M][N] == 1) {
+				cout << "Вы угадали";
+				break;
+			}
+			else if (N >= 10 || M >= 8 || N < 0 || M < 0) {
+				cout << "Вы ввели недопустимые координаты ячейки" << endl;
+				
+			}
+			else if (arr[M][N] == 2) {
+				cout << "Вы уже вводили эти координаты " << endl;
+				
+			}
+			else {
+				cout << "Неверные  координаты ";
+				arr[M][N] = 2;
+				i++;
 			}
 		}
-
-		if (player.first == nI+1 && player.second == nJ+1) {
-			cout << "Вы угадали!" << endl;
-			break;
-		}
-		else if (player.first > str || player.second > stb || player.first < 1 || player.second < 1) {
-			cout << "Выход за границу массива" << endl;
-		}
-		else if (isItTest){
-			cout << "Нет" << endl;
-			plXY.push_back(make_pair(player.first, player.second));
-			counter++;
-		}
-
-		if (counter == 5) cout << "GAME OVER" << endl;
-	}
+		cout << " Хотите сыграть ещё? Нажмите 1, если да.   ";
+		cin >> V;
+	} while (V == 1);
+	return 0;
 }
-
